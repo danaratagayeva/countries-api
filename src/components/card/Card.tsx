@@ -1,9 +1,18 @@
-import React from 'react'
+import React from "react";
+import { ICountry } from "../list/types";
+import "./card.scss";
 
-const Card = () => {
-  return (
-    <div>Card</div>
-  )
+interface ICardProps {
+  country: ICountry;
 }
 
-export default Card
+const Card = (props: ICardProps) => {
+  return (
+    <div className="card">
+      <img alt="flag" src={props.country.flags.png} />
+      <h3>{props.country.name.common}</h3>
+    </div>
+  );
+};
+
+export default Card;
