@@ -9,9 +9,9 @@ interface IListProps {
 }
 
 const List = ({ data }: IListProps) => {
-  console.log(data);
   return (
     <div className="container">
+      {data.length === 0 && <p>No Such Country Found</p>}
       {data.map((country) => (
         <Card key={country.name.common} country={country} />
       ))}

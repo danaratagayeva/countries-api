@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import { ICountry } from "./types";
 import Filter from "../../components/filter/Filter";
@@ -10,11 +10,27 @@ import Search from "../../components/search/Search";
 const Home = () => {
   const [list, setList] = useState<ICountry[]>([]);
   const [query, setQuery] = useState("");
-  console.log(query);
+  const [region, setRegion] = useState("");
+
+  // useEffect(() => {
+  //   fetchData();
+  // }, []);
+
+  const fetchRegion = useCallback(async () => {
+    try {
+      const res = await axios.get(
+        `https://restcountries.com/v3.1/region/${region}`
+      );
+      setList(res.data);
+      console.log("region");
+    } catch (error) {
+      console.log(error);
+    }
+  }, [region]);
 
   useEffect(() => {
-    fetchData();
-  }, []);
+    !region ? fetchData() : fetchRegion();
+  }, [region, fetchRegion]);
 
   const filtered = query
     ? list.filter((country) =>
@@ -28,16 +44,17 @@ const Home = () => {
         "https://restcountries.com/v3.1/all"
       );
       setList(res.data);
-      console.log(res.data);
+      console.log("data");
     } catch (error) {
       console.log(error);
     }
   };
+
   return (
     <div>
       <Navbar />
       <Search query={query} setQuery={setQuery} />
-      <Filter />
+      <Filter region={region} setRegion={setRegion} />
       <List data={filtered} />
       <Footer />
     </div>
