@@ -1,5 +1,5 @@
 import React from "react";
-import { ICountry } from "../list/types";
+import { ICountry } from "../../pages/home/types";
 import "./card.scss";
 
 interface ICardProps {

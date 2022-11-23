@@ -1,31 +1,18 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { ICountry } from "./types";
+import { ICountry } from "../../pages/home/types";
 import Card from "../card/Card";
 import "./list.scss";
 
-const List = () => {
-  const [list, setList] = useState<ICountry[]>([]);
+interface IListProps {
+  data: ICountry[];
+}
 
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = async () => {
-    try {
-      const res = await axios.get<ICountry[]>(
-        "https://restcountries.com/v3.1/all"
-      );
-      setList(res.data);
-      console.log(res.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
+const List = ({ data }: IListProps) => {
+  console.log(data);
   return (
     <div className="container">
-      {list.map((country) => (
+      {data.map((country) => (
         <Card key={country.name.common} country={country} />
       ))}
     </div>

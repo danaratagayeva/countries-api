@@ -1,9 +1,20 @@
-import React from 'react'
+import React from "react";
 
-const Search = () => {
-  return (
-    <div>Search</div>
-  )
+interface ISearchProps {
+  query: string;
+  setQuery: (arg: string) => void;
 }
+const Search = ({ query, setQuery }: ISearchProps) => {
+  return (
+    <div>
+      <input
+        type="text"
+        placeholder="Search Country"
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+      />
+    </div>
+  );
+};
 
-export default Search
+export default Search;
