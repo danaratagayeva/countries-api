@@ -1,14 +1,13 @@
 import React from "react";
+import About from "../../pages/about/About";
+import Home from "../../pages/home/Home";
 import "./navbar.scss";
 
 const Navbar = () => {
   return (
     <div className="navbar-container">
-      <div>Countries</div>
-      <ul className="navbar-menu">
-        <li>About</li>
-        <li>Contact</li>
-      </ul>
+      Countries API
+      <About />
     </div>
   );
 };
