@@ -1,0 +1,15 @@
+.navbar-container {
+  border: 1px solid red;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1.5rem 1.5rem;
+}
+
+.navbar-menu {
+  list-style: none;
+  display: flex;
+  border: 1px solid green;
+  align-items: center;
+  padding-right: 1rem;
+}
