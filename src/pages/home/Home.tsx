@@ -6,6 +6,7 @@ import Footer from "../../components/footer/Footer";
 import List from "../../components/list/List";
 import Navbar from "../../components/navbar/Navbar";
 import Search from "../../components/search/Search";
+import "./home.scss";
 
 const Home = () => {
   const [list, setList] = useState<ICountry[]>([]);
@@ -51,10 +52,13 @@ const Home = () => {
   };
 
   return (
-    <div>
+    <div className="home-container">
       <Navbar />
-      <Search query={query} setQuery={setQuery} />
-      <Filter region={region} setRegion={setRegion} />
+      <div className="home-search-filter">
+        <Search query={query} setQuery={setQuery} />
+        <Filter region={region} setRegion={setRegion} />
+      </div>
+
       <List data={filtered} />
       <Footer />
     </div>
