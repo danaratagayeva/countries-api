@@ -6,7 +6,6 @@ import Footer from "../../components/footer/Footer";
 import List from "../../components/list/List";
 import Navbar from "../../components/navbar/Navbar";
 import Search from "../../components/search/Search";
-import "./home.scss";
 
 const Home = () => {
   const [list, setList] = useState<ICountry[]>([]);

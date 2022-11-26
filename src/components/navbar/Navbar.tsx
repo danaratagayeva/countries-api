@@ -4,11 +4,16 @@ import Home from "../../pages/home/Home";
 import Filter from "../filter/Filter";
 import Search from "../search/Search";
 import "./navbar.scss";
+import PublicTwoToneIcon from "@mui/icons-material/PublicTwoTone";
 
 const Navbar = () => {
   return (
     <div className="navbar-container">
-      Countries API
+      <div>
+        <PublicTwoToneIcon />
+        Countries API
+      </div>
+
       <About />
       {/* <Search />
       <Filter /> */}
