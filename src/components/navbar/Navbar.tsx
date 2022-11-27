@@ -13,7 +13,6 @@ const Navbar = () => {
         <PublicTwoToneIcon />
         Countries API
       </div>
-
       <About />
       {/* <Search />
       <Filter /> */}
